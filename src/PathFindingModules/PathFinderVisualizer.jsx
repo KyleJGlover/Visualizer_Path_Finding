@@ -1,8 +1,9 @@
 import {useState, useEffect} from 'react';
 import Node from './Nodes/NodePoint';
+import Header from './Header/Header'
 
 function PathFinderVisualizer() {
-
+//creates the grid of squares
     const [nodes, setNodes] = useState([]);
 
     function createTable(){
@@ -28,14 +29,16 @@ function PathFinderVisualizer() {
     
 
     return (
-        <div className="PathFindingVisualizer">
-            {nodes.map((row, rowIdx) => {
-                return <div>
-                    {
-                        row.map((node, nodeIdx) => <Node/>)
-                    }
-                    </div>
-            })}
+        
+        <div className="Container">
+            <header><Header/></header>
+            <div className ="Grid">
+                {nodes.map((row, rowIdx) => {
+                    return (
+                            row.map((node, nodeIdx) => <Node/>)
+                        )
+                })}
+            </div>
         </div>
     )
 }
